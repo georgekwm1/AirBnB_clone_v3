@@ -95,6 +95,16 @@ class TestBaseModel(unittest.TestCase):
         self.assertEqual(inst2.created_at, inst2.updated_at)
         self.assertNotEqual(inst1.created_at, inst2.created_at)
         self.assertNotEqual(inst1.updated_at, inst2.updated_at)
+        
+    def test_myfunction_exists(self):
+        self.assertTrue(hasattr(models.engine.db_storage, 'get'),\
+                         "'get' method is not present in db_storage")
+        self.assertTrue(hasattr(models.engine.db_storage, 'count'),\
+                         "'count' method is not present in db_storage")
+        self.assertTrue(hasattr(models.engine.file_storage, 'get'),\
+                         "'get' method is not present in file_storage")
+        self.assertTrue(hasattr(models.engine.file_storage, 'count'),\
+                         "'count' method is not present in file_storage")
 
     def test_uuid(self):
         """Test that id is a valid uuid"""
